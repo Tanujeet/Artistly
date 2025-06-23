@@ -28,9 +28,8 @@ export default function ArtistForm() {
   const {
     register,
     handleSubmit,
-    control,
+
     formState: { errors },
-    reset,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
