@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const categories = ["Singer", "Dancer", "DJ", "Speaker"];
 const languages = ["Hindi", "English", "Tamil", "Punjabi"];
@@ -132,7 +133,7 @@ export default function ArtistForm() {
           }}
         />
         {preview && (
-          <img
+          <Image
             src={preview}
             alt="preview"
             className="mt-4 w-32 h-32 object-cover rounded-md"
