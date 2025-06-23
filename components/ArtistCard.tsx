@@ -13,6 +13,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
+
 type Props = {
   artist: Artist;
   onQuoteClick?: () => void;

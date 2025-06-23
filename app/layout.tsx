@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider, { useTheme } from "@/components/ThemeProvider";
 import Footer from "@/components/Footer";
 
 const geistSans = Geist({
@@ -15,27 +16,30 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Artisly",
-  description: "Your app to help  you get artist for your events",
-};
+function HtmlWrapper({ children }: { children: React.ReactNode }) {
+  const { theme } = useTheme();
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
   return (
-    <html lang="en">
+    <html lang="en" className={theme === "dark" ? "dark" : ""}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
+  );
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <ThemeProvider>
+      <HtmlWrapper>{children}</HtmlWrapper>
+    </ThemeProvider>
   );
 }
