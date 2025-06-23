@@ -17,6 +17,7 @@ const navLinks = [
     name: "Onboard",
     href: "/onboard",
   },
+  { name: "Dashboard", href: "/dashboard" },
 ];
 
 const Header = () => {
