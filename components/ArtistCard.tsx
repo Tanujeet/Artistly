@@ -13,9 +13,9 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-
 type Props = {
   artist: Artist;
+  onQuoteClick?: () => void;
 };
 
 const ArtistCard = ({ artist }: Props) => {
@@ -50,7 +50,7 @@ const ArtistCard = ({ artist }: Props) => {
               <DialogHeader>
                 <DialogTitle>Send Booking Request</DialogTitle>
                 <DialogDescription>
-                  You're requesting to book <b>{artist.name}</b>.
+                  You&apos;re requesting to book <b>{artist.name}</b>.
                 </DialogDescription>
               </DialogHeader>
 

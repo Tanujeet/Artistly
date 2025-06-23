@@ -4,6 +4,16 @@ import { useState } from "react";
 import ArtistCard from "@/components/ArtistCard";
 import { artists as allArtists } from "@/lib/artist";
 import { filterArtists } from "@/lib/utils";
+import { Artist } from "@/lib/artist";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 const categories = ["Singer", "Dancer", "Speaker", "DJ"];
 const prices = [
@@ -17,6 +27,7 @@ export default function ArtistsPage() {
   const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
+  const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
 
   const filtered = filterArtists(allArtists, {
     category,
@@ -70,7 +81,7 @@ export default function ArtistsPage() {
             <ArtistCard
               key={artist.id}
               artist={artist}
-              onQuoteClick={() => alert(`Request sent for ${artist.name}`)}
+              onQuoteClick={() => setSelectedArtist(artist)}
             />
           ))
         ) : (
@@ -79,6 +90,26 @@ export default function ArtistsPage() {
           </p>
         )}
       </section>
+
+      {/* Dialog Box */}
+      <Dialog
+        open={!!selectedArtist}
+        onOpenChange={() => setSelectedArtist(null)}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Send Booking Request</DialogTitle>
+            <DialogDescription>
+              You're requesting <strong>{selectedArtist?.name}</strong> from{" "}
+              {selectedArtist?.location} ({selectedArtist?.category}) — Fee:{" "}
+              <strong>{selectedArtist?.price}</strong>
+            </DialogDescription>
+          </DialogHeader>
+          <Button onClick={() => setSelectedArtist(null)} className="mt-4">
+            Close
+          </Button>
+        </DialogContent>
+      </Dialog>
     </main>
   );
 }
