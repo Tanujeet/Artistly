@@ -25,13 +25,13 @@ export default function ArtistsPage() {
   });
 
   return (
-    <main className="p-6">
+    <main className="p-6 space-y-6">
       {/* Filter Controls */}
-      <section className="mb-6 grid gap-4 sm:grid-cols-3">
+      <section className="grid gap-4 sm:grid-cols-3">
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="border p-2 rounded-md"
+          className="bg-background text-foreground border border-input rounded-md px-3 py-2"
         >
           <option value="">All Categories</option>
           {categories.map((c) => (
@@ -46,13 +46,13 @@ export default function ArtistsPage() {
           placeholder="Search by location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="border p-2 rounded-md"
+          className="bg-background text-foreground border border-input rounded-md px-3 py-2"
         />
 
         <select
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          className="border p-2 rounded-md"
+          className="bg-background text-foreground border border-input rounded-md px-3 py-2"
         >
           <option value="">All Price Ranges</option>
           {prices.map((p) => (
