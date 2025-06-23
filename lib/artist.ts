@@ -16,7 +16,7 @@ export const artists: Artist[] = [
     price: "₹10,000 - ₹20,000",
     location: "Mumbai",
     languages: ["Hindi", "English"],
-    image: "/assets/riya.jpg",
+    image: "/assets/female.jpg",
   },
   {
     id: "2",
@@ -25,7 +25,7 @@ export const artists: Artist[] = [
     price: "₹15,000 - ₹25,000",
     location: "Delhi",
     languages: ["Hindi"],
-    image: "/assets/kunal.jpg",
+    image: "/assets/male.jpg",
   },
   {
     id: "3",
@@ -34,7 +34,7 @@ export const artists: Artist[] = [
     price: "₹5,000 - ₹10,000",
     location: "Bangalore",
     languages: ["English"],
-    image: "/assets/nitesh.jpg",
+    image: "/assets/male.jpg",
   },
   {
     id: "4",
@@ -43,6 +43,6 @@ export const artists: Artist[] = [
     price: "₹8,000 - ₹12,000",
     location: "Chennai",
     languages: ["English", "Tamil"],
-    image: "/assets/priya.jpg",
+    image: "/assets/female.jpg",
   },
 ];

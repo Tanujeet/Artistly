@@ -1,5 +1,13 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 import { Artist } from "./artist";
 
+// 👉 For conditional classNames
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+// 👉 For filtering artist list
 type Filters = {
   category?: string;
   location?: string;
